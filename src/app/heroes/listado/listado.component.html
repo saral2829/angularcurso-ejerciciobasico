@@ -1,1 +1,33 @@
-<p>listado works!</p>
+<p>Listado de Heroes</p>
+
+<!-- Alternativas de ngif
+<div *ngIf="false"></div>
+<div *ngIf="heroeBorrado"></div> 
+NEGAR PARA EL ELSE
+<div *ngIf="!heroeBorrado"></div> 
+noBorrado->Variable local
+-->
+
+<div *ngIf="heroeBorrado !== ''; else noBorrado ">
+   
+    <h3>Heroe Borrado:</h3><small>{{heroeBorrado}} </small>
+
+</div>
+
+<ng-template #noBorrado>
+
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+   
+
+
+<button (click)="borrarArreglo()">
+Borrar
+</button>
+
+<ul>
+    <li *ngFor=" let heroe of heroes; let i =index">
+        {{i+1}} - {{heroe}}
+    </li>
+</ul>
